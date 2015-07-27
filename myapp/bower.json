@@ -1,0 +1,22 @@
+{
+  "name": "myapp",
+  "version": "0.0.1",
+  "main": "public/javascripts/app.js",
+  "keywords": [
+    "neuro"
+  ],
+  "authors": [
+    "n.kashtanov"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependences": {
+    "jquery": "~2.1.1", 
+  }
+}
