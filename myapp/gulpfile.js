@@ -20,7 +20,7 @@ gulp.task('default', function(){
 
 gulp.task('scripts', function () {
 
-	gulp.src('public/javascripts/app.js')
+	gulp.src('client/src/javascripts/app.js')
 		.pipe(browserify({
 //			insertGlobals : true,
 //			debug : !gulp.env.production,
@@ -28,7 +28,7 @@ gulp.task('scripts', function () {
 		}))
 		.pipe(concat('nx.js'))
 //		.pipe(uglify())
-		.pipe(gulp.dest('./pub'));
+		.pipe(gulp.dest('client/pub'));
 
 });
 
