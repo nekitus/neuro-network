@@ -4,7 +4,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var Connection = require('../myapp/server/socket/Connection.js');
+var Net = require('../myapp/server/net/Net.js');
 
 // var app.use =
 
@@ -29,7 +29,7 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'pub')));
 
 app.use('/', routes);
 app.use('/users', users);
@@ -42,10 +42,7 @@ app.use(function(req, res, next) {
   next(err);
 });
 
-// Socket connection
-//TODO: change it
-var connection = new Connection();
-connection.connect();
+var net = new Net();
 
 // error handlersapp.use(function(req, res, next) {
 

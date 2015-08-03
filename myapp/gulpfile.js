@@ -7,15 +7,22 @@ var uglify     = require('gulp-uglify');
 var watch      = require('gulp-watch');
 var htmlbuild      = require('gulp-htmlbuild');
 var cachebreaker = require('gulp-cache-breaker');
+var bower = require('gulp-bower');
+
+//gulp.task('bower', function() {
+//	return bower()
+//		.pipe(gulp.dest('lib/'))
+//});
 
 //Todo: воткнуть еще девелоперскую версию и вотчер
 gulp.task('default', function(){
 	build();
 
-	//gulp.watch(".//**/*", function(event){
-	//	build();
-	//});
+	gulp.watch("./public/javascripts/**/*.js", function(event){
+		build();
+	});
 });
+
 
 
 gulp.task('scripts', function () {

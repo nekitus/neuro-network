@@ -1,3 +1,5 @@
+var io = require('socket.io-client');
+
 function Connection(){
 
     var socket = io("localhost:4000");

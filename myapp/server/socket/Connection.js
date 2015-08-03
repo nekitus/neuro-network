@@ -6,7 +6,7 @@ var port = 4000;
 
 function Connection(){
     io.on('connection', function(socket){
-
+        console.log("Socket connection established \n");
         socket.on('chat message', function(msg){
             console.log(msg);
             io.emit('chat message', "hello from server");
