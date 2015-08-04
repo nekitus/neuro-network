@@ -20,4 +20,3 @@ Neuron.prototype = {
 
     }
 };
-

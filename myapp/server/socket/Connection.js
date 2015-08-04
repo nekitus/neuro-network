@@ -5,11 +5,18 @@ var io = require('socket.io')(http);
 var port = 4000;
 
 function Connection(){
+    var self = this;
+
     io.on('connection', function(socket){
         console.log("Socket connection established \n");
-        socket.on('chat message', function(msg){
-            console.log(msg);
-            io.emit('chat message', "hello from server");
+        socket.on('image-data', function(data){
+            var response = {};
+
+            self.emit("update", data);
+
+            data.imageData;
+            
+            io.emit(response);
         });
     });
 
@@ -19,6 +26,8 @@ function Connection(){
 
     this.socket = io
 }
+
+util.inherits(Connection, events.EventEmitter);
 
 Connection.prototype.connect = function() {};
 

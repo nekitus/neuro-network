@@ -7,7 +7,8 @@ var Connection = require('../socket/Connection.js');
 //var neurons = './../neurons.json';
 var neurons = require('./../neurons.json');
 //var jsonfile = require('jsonfile');
-
+var util = require("util");
+var events = require("events");
 
 function Net (){
 
@@ -15,14 +16,20 @@ function Net (){
     var connection = new Connection();
     connection.connect();
 
-    // init neurons
-    this.initNeurons();
-
+    this.initialize()
 }
+
+util.inherits(Net, events.EventEmitter);
 
 Net.prototype = {
 
     initialize: function() {
+
+        // init neurons
+        this.initNeurons();
+        this.on("data", function(data){
+            console.log("data ", data)
+        })
 
     },
 
